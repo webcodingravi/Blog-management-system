@@ -8,15 +8,16 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(Request $request) {
-     $categories = Category::query();
-     if($request->get('query')) {
-        $categories =  $categories->where('name','like','%'.$request->get('query').'%');
-     }
+      return view('category.list');
+    }
 
-     $categories = $categories->orderBy('created_at','desc');
-     $categories = $categories->paginate(10);
-     $data['categories'] = $categories;
-      return view('category.list',$data);
+
+    public function dataFetch() {
+          $categories = Category::get();
+          return response()->json([
+             'status' => true,
+             'data' => $categories
+          ]);
     }
 
     public function create() {
