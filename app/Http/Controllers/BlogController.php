@@ -11,46 +11,16 @@ class BlogController extends Controller
 {
       public function index(Request $request)
     {
-        $blogs = Blog::select('blogs.*','categories.name as category_name');
-        $blogs = $blogs->join('categories','categories.id','blogs.category_id');
+        return view('blog.list');
+    }
 
-
-        if(!empty($request->get('category'))) {
-            $blogs = $blogs->where('categories.name', 'like', '%'.$request->get('category').'%');
-
-        }
-
-        if(!empty($request->get('is_publish'))) {
-            $is_publish = $request->get('is_publish');
-             if($is_publish == 100) {
-                 $is_publish = 0;
-             }
-            $blogs = $blogs->where('blogs.is_publish',$is_publish);
-
-        }
-
-        if(!empty($request->get('status'))) {
-             $status = $request->get('status');
-             if($status == 100) {
-                 $status = 0;
-             }
-            $blogs = $blogs->where('blogs.status',$status);
-
-        }
-        if(!empty($request->get('start_date'))) {
-            $blogs = $blogs->whereDate('blogs.created_at', '>=',$request->get('start_date'));
-
-        }
-
-        if(!empty($request->get('end_date'))) {
-            $blogs = $blogs->whereDate('blogs.created_at', '<=',$request->get('end_date'));
-
-        }
-
-        $blogs = $blogs->orderBy('blogs.created_at', 'desc')->paginate(10);
-        $data['blogs'] = $blogs;
-
-        return view('blog.list', $data);
+    public function fetchBlog() {
+             $blogs = Blog::select('blogs.*','categories.name as category_name')
+             ->join('categories','categories.id','blogs.category_id')->get();
+             return response()->json([
+                'status' => true,
+                'data' => $blogs
+             ]);
     }
 
 

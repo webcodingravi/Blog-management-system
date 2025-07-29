@@ -12,28 +12,15 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
+    <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet" />
 
-    <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
 
     {{-- summernote --}}
-    <link href="{{ asset('assets/summernote/summernote-lite.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/summernote/summernote-lite.min.css') }}" rel="stylesheet" />
 
-    <script src="{{ asset('assets/jquery/jquery-3.6.0.min.js') }}"></script>
-
-
-
-    {{-- dataTables --}}
-    <script src="{{ asset('assets/dataTables/dataTables.js') }}"></script>
-
-    <script src="{{ asset('assets/dataTables/dataTables.bootstrap5.js') }}"></script>
-    <link href="{{ asset('assets/dataTables/datatables.min.css') }}" rel="stylesheet" />
-
-    <script src="{{ asset('assets/dataTables/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/dataTables/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/dataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/jquery/jquery-3.6.0.min.js') }}"></script>
 
     @routes
     {{-- custom css --}}
@@ -63,9 +50,19 @@
 
 
 
-    <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- summernot js --}}
+    <script src="{{ asset('assets/vendor/summernote/summernote-lite.min.js') }}"></script>
 
+    {{-- dataTables --}}
+    <script src="{{ asset('assets/vendor/dataTables/dataTables.js') }}"></script>
+    <script src="{{ asset('assets/vendor/dataTables/dataTables.bootstrap5.js') }}"></script>
+    <link href="{{ asset('assets/vendor/dataTables/datatables.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/vendor/dataTables/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/dataTables/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/vendor/dataTables/datatables.min.js') }}"></script>
+
+    {{-- custom js --}}
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
         setTimeout(() => {
